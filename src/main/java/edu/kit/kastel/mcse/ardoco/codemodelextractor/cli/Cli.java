@@ -6,8 +6,9 @@ import java.io.File;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import edu.kit.kastel.mcse.ardoco.core.api.models.arcotl.CodeModel;
-import edu.kit.kastel.mcse.ardoco.core.api.models.arcotl.code.CodeItemRepository;
+import edu.kit.kastel.mcse.ardoco.core.api.models.CodeModel;
+import edu.kit.kastel.mcse.ardoco.core.api.models.Metamodel;
+import edu.kit.kastel.mcse.ardoco.core.api.models.code.CodeItemRepository;
 import edu.kit.kastel.mcse.ardoco.tlr.models.connectors.generators.code.AllLanguagesExtractor;
 
 public final class Cli {
@@ -33,7 +34,8 @@ public final class Cli {
         }
 
         CodeItemRepository codeItemRepository = new CodeItemRepository();
-        AllLanguagesExtractor codeExtractor = new AllLanguagesExtractor(codeItemRepository, codeDirectory.getAbsolutePath());
+        AllLanguagesExtractor codeExtractor = new AllLanguagesExtractor(codeItemRepository, codeDirectory.getAbsolutePath(),
+                Metamodel.CODE_WITH_COMPILATION_UNITS_AND_PACKAGES);
         CodeModel model = codeExtractor.extractModel();
         codeExtractor.writeOutCodeModel(model, destination);
     }
