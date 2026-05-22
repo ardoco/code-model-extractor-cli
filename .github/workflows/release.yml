@@ -40,4 +40,4 @@ jobs:
           body_path: CHANGELOG.txt
           generate_release_notes: true
           files: |
-            target/code-model-extractor.jar.jar
+            target/code-model-extractor.jar
