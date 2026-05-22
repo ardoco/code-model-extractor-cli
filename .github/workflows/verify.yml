@@ -14,7 +14,7 @@ on:
 
 jobs:
   verify:
-    uses: kit-sdq/actions/.github/workflows/maven.yml@main
+    uses: ardoco/actions/.github/workflows/maven.yml@main
     with:
       deploy: false
     secrets:
